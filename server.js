@@ -7,6 +7,7 @@ const cors = require('cors')
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
 const planetRoutes = require('./app/routes/planet_routes')
+const moonRoutes = require('./app/routes/moon_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -19,8 +20,6 @@ const db = require('./config/db')
 
 // require configured passport authentication middleware
 const auth = require('./lib/auth')
-const planet = require('./app/models/planet')
-
 
 // define server and client ports
 // used for cors and local port declaration
@@ -71,6 +70,7 @@ app.use(requestLogger)
 app.use(exampleRoutes)
 app.use(userRoutes)
 app.use(planetRoutes)
+app.use(moonRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
